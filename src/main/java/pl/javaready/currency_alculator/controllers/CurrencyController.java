@@ -20,7 +20,7 @@ public class CurrencyController {
     }
 
     @PostMapping
-    public BigDecimal convertToGivenCurrency(@RequestBody CurrencyDto currencyDto) {
+    public BigDecimal convertToGivenCurrency(CurrencyDto currencyDto) {
         return currencyService.convert(currencyDto);
     }
 }

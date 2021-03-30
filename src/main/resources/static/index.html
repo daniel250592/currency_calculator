@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Witaj w kalkulatorze walut</h1>
+
+<form action="http://localhost:8080/check" method="post">
+    <label>
+        Podaj walutę jaką masz.
+        <input type="text" name="currency">
+    </label>
+    <label>
+        Podaj kwotę jaką chcesz wymienić.
+        <input type="number" name="amount">
+    </label>
+    <label>
+        Podaj walutę jaką chcesz otrzymać
+        <input type="text" name="currencyTarget">
+    </label>
+    <button type="submit">Wymień</button>
+</form>
+
+
+</body>
+</html>

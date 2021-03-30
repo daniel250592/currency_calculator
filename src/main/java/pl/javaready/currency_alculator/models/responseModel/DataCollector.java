@@ -22,13 +22,14 @@ public class DataCollector {
 
     private List<ResponseModelAB> getResponseModelAB(String response, Gson gson) {
         List<ResponseModelAB> list = new ArrayList<>();
+        response = response.substring(2, response.length() - 2);
 
-        String stringPattern = "currency";
+        String stringPattern = "\\{";
 
         String[] split = response.split(stringPattern);
 
         for (int i = 1; i < split.length; i++) {
-            split[i] = "{\"currency" + split[i].substring(0, split[i].length() - 3);
+            split[i] = "{" + split[i].substring(0, split[i].length() - 2) + "}";
             ResponseModelAB responseModel = gson.fromJson(split[i], ResponseModelAB.class);
             list.add(responseModel);
         }
@@ -37,12 +38,15 @@ public class DataCollector {
 
     private List<ResponseModelC> getResponseModelC(String response, Gson gson) {
         List<ResponseModelC> list = new ArrayList<>();
-        String stringPattern = "currency";
+
+        response = response.substring(2, response.length() - 2);
+
+        String stringPattern = "\\{";
 
         String[] split = response.split(stringPattern);
 
         for (int i = 1; i < split.length; i++) {
-            split[i] = "{\"currency" + split[i].substring(0, split[i].length() - 3);
+            split[i] = "{" + split[i].substring(0, split[i].length() - 2) + "}";
             ResponseModelC responseModel = gson.fromJson(split[i], ResponseModelC.class);
             list.add(responseModel);
         }
